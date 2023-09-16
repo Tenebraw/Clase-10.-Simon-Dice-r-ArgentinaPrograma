@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Simon Dice...</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='node_modules/bootstrap/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet' type='text/css' media='screen' href='styles/style.css'>
+    
+</head>
+<body id="entire">
+    <div class="container">
+        <div class="row">
+          <div class="col-sm-8 alert alert-dark" role="alert">
+            Simon Dice
+          </div>
+          <div class="col-sm alert alert-dark" role="alert" id="rounds">
+            Round nº
+          </div>
+          
+        </div>
+      </div>
+    <div class="container" id="tablero">
+        <div class="row justify-content-around">
+            <div class="col-4 col-sm-3" id="opcion1" onClick="opcionSeleccionada(this.id)">
+              1
+            </div>
+            <div class="col-4 col-sm-3" id="opcion2" onClick="opcionSeleccionada(this.id)">
+              2
+            </div>
+          </div>
+          <div class="row justify-content-between">
+            <div class="col-4 col-sm-3" id="opcion3" onClick="opcionSeleccionada(this.id)">
+              3
+            </div>
+            <button id="empezar" class="" type="button">Empezar</button>
+            <div class="col-4 col-sm-3" id="opcion4" onClick="opcionSeleccionada(this.id)">
+              4
+            </div>
+          </div>
+          <div class="row justify-content-around">
+            <div class="col-4 col-sm-3" id="opcion5" onClick="opcionSeleccionada(this.id)">
+              5
+            </div>
+            <div class="col-4 col-sm-3" id="opcion6" onClick="opcionSeleccionada(this.id)">
+              6
+            </div>
+          </div>
+
+
+
+
+    
+      </div>
+
+    <script src='js/index.js'></script>    
+</body>
+</html>

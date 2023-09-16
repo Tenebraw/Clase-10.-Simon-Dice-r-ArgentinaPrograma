@@ -1,0 +1,69 @@
+html{
+    height: 100%;
+      
+}
+body{
+    height: 100%;
+    font-family: 'Architects Daughter', cursive;
+    font-size: 1em;
+    background-image:url('../images/fondo2.jpg'); 
+    background-position: center;
+}
+
+#empezar {
+    width: 6em;
+    height: 6em;
+    font-size: 13px;
+    border-radius: 50%;
+    border: 0px solid rgba(255, 255, 255, 0);
+    margin-top: 1.625em;
+    background-color: green;
+    border-color: green;
+}
+
+#opcion1 {
+    background-color: #ffbe0b;   
+}
+#opcion2 {
+    background-color: #fb5607;  
+}
+#opcion3 {
+    background-color: #ff006e;   
+}
+#opcion4 {
+    background-color: #8338ec;   
+}
+#opcion5 {
+    background-color: #3a86ff;  
+}
+#opcion6 {
+    background-color:#003049;   
+}
+
+#opcion1,
+#opcion2,
+#opcion3,
+#opcion4,
+#opcion5,
+#opcion6
+{
+    padding-top: 2.5em;
+    padding-bottom: 2.5em;
+    padding-bottom: 2.5em;
+    border-radius: 0.9375em;
+    margin-top: 1.25em;
+    margin-bottom: 1.25em;
+    transition: background-color .5s;
+    -webkit-box-shadow: 29px -4px 73px 0px rgba(237,45,102,1);
+-moz-box-shadow: 29px -4px 73px 0px rgba(237,45,102,1);
+box-shadow: 29px -4px 73px 0px rgba(237,45,102,1);
+}
+
+.progreso{
+    padding-top: 0.1875em;
+    color: black;
+    opacity:0.4;
+}
+.bloqueo{
+    pointer-events: none;
+}
