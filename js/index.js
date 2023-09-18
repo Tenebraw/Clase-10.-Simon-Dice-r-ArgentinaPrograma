@@ -1,38 +1,40 @@
 
 const juegoPosibilidades =['opcion1','opcion2','opcion3','opcion4','opcion5','opcion6'];
+const $botonEmpezar = document.querySelector('#empezar');
+const $rounds = document.querySelector('#rounds');
 let movimientosMaquina=[];
 let movimientosJugador=[];
-let timeComp=1000;
-let $botonEmpezar = document.querySelector('#empezar');
-let $rounds = document.querySelector('#rounds');
-let contador=1;
+let tiempoMaquina=1000;
+let rounds=1;
 
-function inicioSimon(){
+
+function iniciarSimon(){
    movimientosMaquina=[];
-$botonEmpezar.onclick= manejarRonda;
-};
+   $botonEmpezar.onclick= manejarRonda;
+    }
 
 function manejarRonda(){ 
-    $rounds.textContent=`Round nº ${contador}`;
+    $rounds.textContent=`Round nº ${rounds}`;
     $botonEmpezar.textContent='Presta atencion!';
     bloquearJugador();
-    movimientosMaqManejador();
+    manejarMovimientosMaquina();
     setTimeout(() => {
         $botonEmpezar.textContent='Tu turno!!';
         $botonEmpezar.className='bloqueo';
         resetearInputsJugador();
         desbloquearJugador();     
-    }, timeComp);
-      
-    function resetearInputsJugador(){
-        if(movimientosJugador.length!=0){
-            movimientosJugador=[]
-        }
-    }
-    contador++;
+    }, tiempoMaquina);
+    resetearInputsJugador();
+    rounds++;
 }
 
-function movimientosMaqManejador(){
+function resetearInputsJugador(){
+    if(movimientosJugador.length!=0){
+        movimientosJugador=[]
+    }
+}
+
+function manejarMovimientosMaquina(){
     const resultado = Math.floor(Math.random()*(juegoPosibilidades.length)+1);
     let eleccionC = '#opcion'+resultado;
     movimientosMaquina.push(eleccionC);
@@ -47,11 +49,11 @@ function movimientosMaqManejador(){
 
         },i*1000); 
     } 
-    timeComp=movimientosMaquina.length*1000;
+    tiempoMaquina=movimientosMaquina.length*1000;
     return true;
 }
 
-function opcionSeleccionada(id){
+function aplicarOpcionSeleccionada(id){
     movimientosJugador.push('#'+id);
     document.querySelector('#'+id).classList.add('progreso');  
         setTimeout(() => {
@@ -60,17 +62,19 @@ function opcionSeleccionada(id){
     compararMovimientos(movimientosJugador,movimientosMaquina);
 }
 
-function compararMovimientos(movimientosJugador, movimientosMaquina ){
-    if(movimientosMaquina[movimientosJugador.length-1]!==movimientosJugador[movimientosJugador.length-1]){
+function compararMovimientos(jugador, maquina ){ 
+    const ultimoMovimiento=jugador.length-1;
+
+    if(maquina[ultimoMovimiento]!==jugador[ultimoMovimiento]){
         $botonEmpezar.textContent='Mal!!';
-        contador=1;
+        rounds=1;
         $botonEmpezar.className='';
-        inicioSimon();
+        iniciarSimon();
         setTimeout(()=>{
             $botonEmpezar.textContent='Empezar de nuevo?';
         },1000);
     }
-    if(movimientosMaquina[movimientosMaquina.length-1]==movimientosJugador[movimientosJugador.length-1] && movimientosMaquina.length==movimientosJugador.length){
+    if(maquina[ultimoMovimiento]==jugador[ultimoMovimiento] && maquina.length==jugador.length){
         $botonEmpezar.textContent='Bien!!';
         setTimeout(() => {
             manejarRonda(); 
@@ -79,11 +83,11 @@ function compararMovimientos(movimientosJugador, movimientosMaquina ){
 }
 
 function bloquearJugador(){
-    const tablero = document.querySelector('#entire');
+    const tablero = document.querySelector('body');
     tablero.className ='bloqueo';
 }
 function desbloquearJugador(){
-    const tablero=document.querySelector('#entire');
+    const tablero=document.querySelector('body');
     tablero.className='';
 }
-inicioSimon();
+iniciarSimon();
