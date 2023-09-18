@@ -1,4 +1,5 @@
 
+const $tableroJuego = document.querySelector('body');
 const juegoPosibilidades =['opcion1','opcion2','opcion3','opcion4','opcion5','opcion6'];
 const $botonEmpezar = document.querySelector('#empezar');
 const $rounds = document.querySelector('#rounds');
@@ -83,11 +84,10 @@ function compararMovimientos(jugador, maquina ){
 }
 
 function bloquearJugador(){
-    const tablero = document.querySelector('body');
-    tablero.className ='bloqueo';
+    $tableroJuego.className ='bloqueo';
 }
 function desbloquearJugador(){
-    const tablero=document.querySelector('body');
-    tablero.className='';
+    $tableroJuego.className='';
 }
+
 iniciarSimon();
